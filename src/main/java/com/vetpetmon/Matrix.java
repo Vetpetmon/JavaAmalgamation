@@ -43,6 +43,9 @@ public class Matrix {
         }
         return ref;
     }
+
+
+
     // TODO: Accept float matrices and integer matrices
 
     /**
@@ -78,11 +81,20 @@ public class Matrix {
 
     // TODO: Matrix addition functions (placeholder)
     public static double[][] MAF(double[][] matrix1,double[][] matrix2) {
-        double[][] mat = new double[][]{};
         if (!correspondingDimension(matrix1,matrix2)) {
             System.out.println("Addition of the matrices given is impossible. Returning null value.");
             return null;
         }
+        int[] l= {matrix1.length, matrix1[0].length};
+        double[][] mat = new double[l[0]][l[1]];
+
+
+        //Loop through every row (Y-axis)
+        for (int y = 0; y < l[0]; ++y)
+            //Loop through every column (X-axis)
+            for (int x = 0; x < l[1]; ++x)
+                mat[y][x] = matrix1[y][x]+matrix2[y][x];
+
         return mat;
     }
 
